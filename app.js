@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const shortenRequestRouter = require('./routers/new-url-router');
+const redirectRouter = require('./routers/redirect-router')
 
 app.use(cors({
   origin: '*',
@@ -14,6 +15,8 @@ app.use("/public", express.static(`./public`));
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/views/index.html");
 });
+
+app.use('/arniurl', redirectRouter)
 
 app.use('/api/shorturl', shortenRequestRouter);
 
