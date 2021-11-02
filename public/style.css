@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&family=Zen+Kurenaido&display=swap');
+
 body {
-  font-family: Arial, sans-serif;
+ font-family: 'Raleway', sans-serif;
   font-size: 16px;
   color: #222;
-  background-color: #fff;
+  background-color:rgba(200, 200, 200, 0.5);
   text-align: center;
   line-height: 1.4em;
 }
@@ -17,7 +19,6 @@ h3 {
 }
 
 
-
 .user-stories li {
   margin-bottom: 1em;
 }
@@ -27,7 +28,8 @@ a {
 }
 
 form {
-  margin: 10px auto;
+  margin-left: auto;
+  margin-right: auto;
   padding: 20px;
   max-width: 600px;
 }
@@ -43,4 +45,37 @@ input {
 input[type='text'] {
   width: 220px;
   text-align: center;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+nav li {
+  margin: auto 5px;
+  transition: 0.3s;
+}
+
+nav li:hover {
+  color: violet;
+  cursor: pointer;
+}
+
+
+.newUrl-display-div {
+  margin: 3% auto;
+  width: 400px;
+  height: 40px;
+  box-shadow: 5px 10px 2px rgba(200, 200, 200, 0.5);
+  border-radius: 5%;
 }
