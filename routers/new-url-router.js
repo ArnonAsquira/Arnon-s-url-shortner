@@ -23,7 +23,7 @@ Router.post('/', (req, res) => {
             }
             indexCounter ++;
         })
-        if (!indexCounter === dbArray.length) {
+        if (indexCounter !== dbArray.length) {
             console.log(indexCounter);
             return;
         }
