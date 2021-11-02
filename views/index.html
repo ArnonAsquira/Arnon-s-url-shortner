@@ -5,13 +5,14 @@
     <title>URL Shortener</title>
     <link rel="icon" type="image/png" href="../public/favicon.ico" />
     <link href="./public/style.css" rel="stylesheet" type="text/css" />
+    <script src="../public/main.js" defer></script>
   </head>
 
   <body>
-    <h1>URL Shortener Microservice</h1>
+    <h1>Arni URL</h1>
     <main>
       <section>
-        <form action="api/shorturl/new" method="POST">
+        <form>
           <fieldset>
             <legend>URL Shortener</legend>
             <label for="url_input">URL:</label>
@@ -21,7 +22,7 @@
               name="url"
               placeholder="https://www.freecodecamp.org/"
             />
-            <input type="submit" value="POST URL" />
+            <input  id="submit-url" type="submit" value="POST URL"/>
           </fieldset>
         </form>
       </section>
@@ -29,5 +30,7 @@
     <footer>
       <p>By <a href="https://www.freecodecamp.org/">freeCodeCamp expample</a></p>
     </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js" integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   </body>
 </html>
