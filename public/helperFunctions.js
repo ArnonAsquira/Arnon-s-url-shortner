@@ -25,3 +25,14 @@ export function displayUrl(newUrl) {
     }
     Array.from(document.getElementsByTagName('main'))[0].appendChild(displayDiv);
  }
+
+
+// redirect function
+export function redirectTo(url) {
+    try {
+        window.location.assign(url);
+    } catch(error) {
+        console.log(error);
+        alert ('redirection failed')
+    }
+}

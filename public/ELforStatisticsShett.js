@@ -14,3 +14,4 @@ export async function searchUrlStatistics(e) {
 function createStatsEntries(entry, stat) {
    return helpers.createElement('p', [`${entry} ${stat}`], [], {});
 }
+

@@ -28,3 +28,8 @@ export async function redirectToStatistics(e) {
         alert ('redirection failed')
     }
 }
+
+export function redirectToHome(e) {
+   console.log('123');
+   helpers.redirectTo(serverUrl);
+}
