@@ -5,7 +5,7 @@ const { v4: uuidv4 } = require('uuid');
 
 function createNewUrlEntry (urlToShorten) {
     const newUrlId =  uuidv4().slice(0, 5);
-    const newUrlEntry = {newUrl: `http://localhost:3000/arniurl/${newUrlId}`, oldUrl: urlToShorten, timesUsed: 0};
+    const newUrlEntry = {newUrl: `http://localhost:3000/arniurl/${newUrlId}`, oldUrl: urlToShorten, timesUsed: 0, dateCreated: new Date()};
     return newUrlEntry;
 }
 

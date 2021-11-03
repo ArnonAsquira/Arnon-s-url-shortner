@@ -23,11 +23,4 @@ Router.post('/', (req, res) => {
     }
 })
 
-
-function createNewUrlEntry (urlToShorten) {
-    const newUrlId =  uuidv4().slice(0, 5);
-    const newUrlEntry = {newUrl: `http://localhost:3000/arniurl/${newUrlId}`, oldUrl: urlToShorten, timesUsed: 0};
-    return newUrlEntry;
-}
-
 module.exports = Router;

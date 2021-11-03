@@ -3,7 +3,8 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const shortenRequestRouter = require('./routers/new-url-router');
-const redirectRouter = require('./routers/redirect-router')
+const redirectRouter = require('./routers/redirect-router');
+const getStatsRouter = require('./routers/retrieveUrlStatsRouter');
 
 app.use(cors({
   origin: '*',
@@ -24,6 +25,8 @@ app.get('/satistics', (req, res) => {
 app.use('/arniurl', redirectRouter)
 
 app.use('/api/shorturl', shortenRequestRouter);
+
+app.use('/api/statistic/', getStatsRouter)
 
 
 

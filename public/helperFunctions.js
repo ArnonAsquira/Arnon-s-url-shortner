@@ -1,5 +1,5 @@
 // generic create element function
-function createElement(tagName, children = [], classes = [], attributes = {}) {
+export function createElement(tagName, children = [], classes = [], attributes = {}) {
     let newEl = document.createElement(tagName);
     for(let child of children){
         if(typeof(child) === "string"){
