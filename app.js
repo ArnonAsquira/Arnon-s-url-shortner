@@ -16,8 +16,15 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/dist/index.html");
 });
 
+// sending statisics sheet
+app.get('/satistics', (req, res) => {
+  res.sendFile(__dirname + "/dist/statistics.html");
+})
+
 app.use('/arniurl', redirectRouter)
 
 app.use('/api/shorturl', shortenRequestRouter);
+
+
 
 module.exports = app;

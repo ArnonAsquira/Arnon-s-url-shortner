@@ -21,5 +21,10 @@ module.exports = {
     template: './public/index.html',
     title: 'url shortner',
     filename: 'index.html'
+  }), 
+  new HtmlWebpackPlugin({
+    template: './public/statisticsSheet.html',
+    title: 'url shortner',
+    filename: 'statistics.html'
   })]
 };

@@ -110,13 +110,23 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 
 /***/ }),
 
+/***/ "./public/eventListeners.js":
+/*!**********************************!*\
+  !*** ./public/eventListeners.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"sendUrlToServer\": () => (/* binding */ sendUrlToServer),\n/* harmony export */   \"redirectToStatistics\": () => (/* binding */ redirectToStatistics)\n/* harmony export */ });\n/* harmony import */ var _globalVariabalrs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./globalVariabalrs */ \"./public/globalVariabalrs.js\");\n/* harmony import */ var _helperFunctions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helperFunctions */ \"./public/helperFunctions.js\");\n\r\n\r\n\r\nconst serverUrl = 'http://localhost:3000';\r\n\r\n// event listeners function\r\nasync function sendUrlToServer(e) {\r\n    e.preventDefault();\r\n    const urlTosend = _globalVariabalrs__WEBPACK_IMPORTED_MODULE_0__.urlInput.value;\r\n    try {\r\n        const response = await axios.post(`${serverUrl}/api/shorturl/`, {url: urlTosend});\r\n        _helperFunctions__WEBPACK_IMPORTED_MODULE_1__.displayUrl(response.data.newUrl);\r\n    } catch(error) {\r\n        console.log(error);\r\n        alert('this is not a vaild url');\r\n    }\r\n}\r\n\r\n\r\n// redirecting to statistics sheet html\r\n\r\nasync function redirectToStatistics(e) {\r\n    try {\r\n        // window.location.assign(`${serverUrl}/satistics`);\r\n        await axios.get(`${serverUrl}/satistics/`);\r\n    } catch(error) {\r\n        console.log(error);\r\n        alert ('redirection failed')\r\n    }\r\n}\n\n//# sourceURL=webpack://shorturl/./public/eventListeners.js?");
+
+/***/ }),
+
 /***/ "./public/globalVariabalrs.js":
 /*!************************************!*\
   !*** ./public/globalVariabalrs.js ***!
   \************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"submitButton\": () => (/* binding */ submitButton),\n/* harmony export */   \"urlInput\": () => (/* binding */ urlInput)\n/* harmony export */ });\n/* // global varibles */\r\nconst submitButton = document.getElementById('submit-url');\r\nconst urlInput = document.getElementById('url_input')\r\n\n\n//# sourceURL=webpack://shorturl/./public/globalVariabalrs.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"submitButton\": () => (/* binding */ submitButton),\n/* harmony export */   \"urlInput\": () => (/* binding */ urlInput),\n/* harmony export */   \"navBarStatistics\": () => (/* binding */ navBarStatistics)\n/* harmony export */ });\n/* // global varibles */\r\nconst submitButton = document.getElementById('submit-url');\r\nconst urlInput = document.getElementById('url_input');\r\nconst navBarStatistics = document.querySelector('[name=\"premium-statistics\"]')\r\n\n\n//# sourceURL=webpack://shorturl/./public/globalVariabalrs.js?");
 
 /***/ }),
 
@@ -136,7 +146,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./public/style.css\");\n/* harmony import */ var _globalVariabalrs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./globalVariabalrs */ \"./public/globalVariabalrs.js\");\n/* harmony import */ var _helperFunctions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helperFunctions */ \"./public/helperFunctions.js\");\n\r\n\r\n\r\n\r\n\r\n// adding event listeners\r\n_globalVariabalrs__WEBPACK_IMPORTED_MODULE_1__.submitButton.addEventListener('click', sendUrlToServer);\r\n\r\n\r\n// event listeners function\r\nasync function sendUrlToServer(e) {\r\n    e.preventDefault();\r\n    const urlTosend = _globalVariabalrs__WEBPACK_IMPORTED_MODULE_1__.urlInput.value;\r\n    try {\r\n        const response = await axios.post('http://localhost:3000/api/shorturl/', {url: urlTosend});\r\n        _helperFunctions__WEBPACK_IMPORTED_MODULE_2__.displayUrl(response.data.newUrl);\r\n    } catch(error) {\r\n        console.log(error);\r\n        alert('this is not a vaild url');\r\n    }\r\n}\n\n//# sourceURL=webpack://shorturl/./public/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./public/style.css\");\n/* harmony import */ var _globalVariabalrs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./globalVariabalrs */ \"./public/globalVariabalrs.js\");\n/* harmony import */ var _helperFunctions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helperFunctions */ \"./public/helperFunctions.js\");\n/* harmony import */ var _eventListeners__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./eventListeners */ \"./public/eventListeners.js\");\n\r\n\r\n\r\n\r\n\r\n\r\n// adding event listeners\r\n_globalVariabalrs__WEBPACK_IMPORTED_MODULE_1__.submitButton.addEventListener('click', _eventListeners__WEBPACK_IMPORTED_MODULE_3__.sendUrlToServer);\r\n\r\n// redirecting to statistics sheet\r\n_globalVariabalrs__WEBPACK_IMPORTED_MODULE_1__.navBarStatistics.addEventListener('click', _eventListeners__WEBPACK_IMPORTED_MODULE_3__.redirectToStatistics);\r\n\n\n//# sourceURL=webpack://shorturl/./public/main.js?");
 
 /***/ })
 
