@@ -10,10 +10,10 @@ app.use(cors({
   methods: '*'
 }));
 
-app.use("/public", express.static(`./public`));
+app.use(express.static(`dist`));
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/views/index.html");
+  res.sendFile(__dirname + "/dist/index.html");
 });
 
 app.use('/arniurl', redirectRouter)
