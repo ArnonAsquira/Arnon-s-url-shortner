@@ -3,6 +3,7 @@ const Router = express.Router();
 const fs = require('fs');
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
+const pushUrlEntryToDB = require('./DBfunctions');
 
 
 Router.use(express.json()) // parses requests as json
@@ -14,22 +15,8 @@ Router.post('/', (req, res) => {
        return;
     }
     try {
-        const dbArray = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../urls-database/main-DB.json'), 'utf-8'));
-        let indexCounter = 0;
-        dbArray.forEach(urlEntry => {
-            if(urlEntry.oldUrl === req.body.url) {
-              res.send(urlEntry);
-              return;
-            }
-            indexCounter ++;
-        })
-        if (indexCounter !== dbArray.length) {
-            console.log(indexCounter);
-            return;
-        }
-        dbArray.push(createNewUrlEntry(req.body.url));
-        fs.writeFileSync(path.resolve(__dirname, '../urls-database/main-DB.json'), JSON.stringify(dbArray));
-        res.send(dbArray[dbArray.length-1]);
+        console.log()
+        res.send(pushUrlEntryToDB.pushUrlEntryToDB(req.body.url));
     } catch(error) {
         console.log(error);
         res.send(error);

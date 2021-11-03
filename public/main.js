@@ -2,10 +2,22 @@ import style from './style.css';
 import * as globalVR from './globalVariabalrs';
 import * as helpers from './helperFunctions';
 import * as eventListeners from './eventListeners'
+import * as eventListenersForStatSheet from './ELforStatisticsShett';
 
+try {
+   // adding event listeners
+    globalVR.submitButton.addEventListener('click', eventListeners.sendUrlToServer);
 
-// adding event listeners
-globalVR.submitButton.addEventListener('click', eventListeners.sendUrlToServer);
+    // redirecting to statistics sheet
+    globalVR.navBarStatistics.addEventListener('click', eventListeners.redirectToStatistics);
+} catch(error) {
 
-// redirecting to statistics sheet
-globalVR.navBarStatistics.addEventListener('click', eventListeners.redirectToStatistics);
+}
+
+// statistics sheet event listeners
+try {
+    globalVR.searchStatisticsButton.addEventListener('click', eventListenersForStatSheet.searchUrlStatistics);
+} catch (error) {
+    console.log('didnt load style sheet event listeners');
+}
+
