@@ -4,6 +4,7 @@ export const urlInput = document.getElementById('url_input');
 // navbar variables
 export const navBarStatistics = document.querySelector('[name="premium-statistics"]');
 export const navBarHome = document.querySelector('[name="home"]');
+export const navBarWhy = document.querySelector('[name="why"]')
 //  premium html variables
 export const searchStatisticsForm = document.getElementById('search-for-statistics');
 export const searchStatisticsInput = document.querySelector('#search-for-statistics input');

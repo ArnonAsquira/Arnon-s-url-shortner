@@ -22,12 +22,17 @@ app.get('/satistics', (req, res) => {
   res.sendFile(__dirname + "/dist/statistics.html");
 })
 
+// sending the why page
+app.get('/why', (req, res) => {
+  console.log('123');
+  res.sendFile(__dirname + "/dist/why.html");
+})
+
 app.use('/arniurl', redirectRouter)
 
 app.use('/api/shorturl', shortenRequestRouter);
 
-app.use('/api/statistic/', getStatsRouter)
-
+app.use('/api/statistic/', getStatsRouter);
 
 
 module.exports = app;

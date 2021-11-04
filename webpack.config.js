@@ -26,5 +26,10 @@ module.exports = {
     template: './public/statisticsSheet.html',
     title: 'url shortner',
     filename: 'statistics.html'
+  }),
+  new HtmlWebpackPlugin({
+    template: './public/why-arni.html',
+    title: 'url shortner',
+    filename: 'why.html'
   })]
 };

@@ -28,7 +28,17 @@ export async function redirectToStatistics(e) {
         alert ('redirection failed')
     }
 }
-
+// redirects to home
 export function redirectToHome(e) {
    helpers.redirectTo(serverUrl);
+}
+
+// redirect to the why page
+export async function redirectToWhy() {
+    try {
+        window.location.assign(`${serverUrl}/why`);
+    } catch(error) {
+        console.log(error);
+        alert ('redirection failed')
+    }
 }
