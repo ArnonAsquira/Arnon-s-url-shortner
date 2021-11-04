@@ -1,6 +1,9 @@
 import * as globalVR from './globalVariabalrs';
 import * as helpers from './helperFunctions';
 
+const serverUrl = 'http://localhost:3000';
+
+// searrch url statistics in the server
 export async function searchUrlStatistics(e) {
     e.preventDefault();
     const response = await axios.get(`http://localhost:3000/api/statistic/${globalVR.searchStatisticsInput.value.slice(30)}`);
@@ -10,8 +13,31 @@ export async function searchUrlStatistics(e) {
     const statSheet = helpers.createElement('div', [urlTimesUsed, urlCreateDate], ['statSheet-main-div'], {});
     document.getElementById('root').appendChild(statSheet);
 }
-
+// crates stat entries for the dom
 function createStatsEntries(entry, stat) {
    return helpers.createElement('p', [`${entry} ${stat}`], [], {});
 }
 
+// creates a url object to be sent to the server via the body's request
+function createUniqueUrl(url, ending) {
+    try {
+        const urlObj = {url, ending};
+        return urlObj;
+    }catch (error) {
+        console.log(error);
+    }
+}
+
+export async function sendUniqueUrlObjToServer(e) {
+    e.preventDefault();
+    const urlPremiumEntry = createUniqueUrl(globalVR.createUniqueUrlOldInput.value, globalVR.createUniqueUrlNewInput.value);
+    console.log(urlPremiumEntry);
+    try {
+        const response = await axios.post(`${serverUrl}/api/shorturl/`, urlPremiumEntry);
+        console.log(response)
+        helpers.displayUrl(response.data.newUrl);
+    } catch(error) {
+        console.log(error);
+        alert('this is not a vaild url');
+    }
+}

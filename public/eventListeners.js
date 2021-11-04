@@ -30,6 +30,5 @@ export async function redirectToStatistics(e) {
 }
 
 export function redirectToHome(e) {
-   console.log('123');
    helpers.redirectTo(serverUrl);
 }

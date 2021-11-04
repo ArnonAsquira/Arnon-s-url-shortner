@@ -9,7 +9,7 @@ body {
   line-height: 1.4em;
 }
 
-main {
+main, #root {
   padding: 0;
   margin-top: 40px;
 }

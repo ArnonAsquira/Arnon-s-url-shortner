@@ -13,15 +13,16 @@ try {
     // redirect to home page
     globalVR.navBarHome.addEventListener('click', eventListeners.redirectToHome);
 } catch(error) {  
-   console.log(error);
+   console.log('didnt load home page eventlisteners');
 }
 
 // statistics sheet event listeners
 try {
     globalVR.searchStatisticsButton.addEventListener('click', eventListenersForStatSheet.searchUrlStatistics);
     globalVR.navBarHome.addEventListener('click', eventListeners.redirectToHome);
+    globalVR.createUniqueUrlButton.addEventListener('click', eventListenersForStatSheet.sendUniqueUrlObjToServer);
 } catch (error) {
-    console.log('didnt load style sheet event listeners');
+    console.log('didnt load stat sheet event listeners');
 }
 
 
