@@ -39,6 +39,6 @@ export async function sendUniqueUrlObjToServer(e) {
         helpers.displayUrl(response.data.newUrl);
     } catch(error) {
         console.log(error);
-        alert('this is not a vaild url');
+        alert('invalid url or ending taken');
     }
 }
