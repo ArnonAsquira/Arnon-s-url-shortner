@@ -98,11 +98,19 @@ button, #submit-url {
   height: 30px;
   border: none;
   background-color: cornsilk;
-  color: aqua;
+  color: rgb(0, 4, 255);
+  cursor: pointer;
   transition: 0.5s;
 }
 
 button:hover, #submit-url:hover{
   background-color: darkmagenta;
   color: coral;
+}
+
+canvas {
+  background-color: cyan;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
 }

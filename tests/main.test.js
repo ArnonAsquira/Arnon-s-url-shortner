@@ -25,6 +25,18 @@ async function start(urlTOenter) {
    await browser.close()
 }
 
+let pageUrl;
+async function redirect() {
+   browser = await puppeteer.launch({headless: false, slowMo: 10});
+   page = await browser.newPage();
+   await page.goto('http://localhost:3000/');
+   await Promise.all([page.click('body > nav > ul > li:nth-child(3)'),  page.waitForNavigation()]);
+   await page.waitForTimeout(10);
+   pageUrl = await page.url();
+   await browser.close()
+}
+
+
 afterAll(async () => {
    await browser.close();
  })
@@ -44,4 +56,9 @@ test('entering a valid url should rsault in getting a shorten url', async() => {
 test('entering the same url should resault in the same shortened url', async() => {
    await start('https://www.sport5.co.il/liga.aspx?FolderID=397');
    expect(newUrl).toBe(firstUrl);
+})
+
+test('pressing on the nav bar links should redirect to a new page', async() => {
+    await redirect();
+    expect(pageUrl).toBe('http://localhost:3000/satistics');
 })
