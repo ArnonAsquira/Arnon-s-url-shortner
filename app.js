@@ -24,7 +24,6 @@ app.get('/satistics', (req, res) => {
 
 // sending the why page
 app.get('/why', (req, res) => {
-  console.log('123');
   res.sendFile(__dirname + "/dist/why.html");
 })
 

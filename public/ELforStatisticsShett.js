@@ -6,8 +6,17 @@ const serverUrl = 'http://localhost:3000';
 // searrch url statistics in the server
 export async function searchUrlStatistics(e) {
     e.preventDefault();
-    const response = await axios.get(`${serverUrl}/api/statistic/${globalVR.searchStatisticsInput.value.slice(30)}`);
-    console.log(response.data);
+    let response;
+    try {
+        response = await axios.get(`${serverUrl}/api/statistic/${globalVR.searchStatisticsInput.value.slice(30)}`);
+        console.log(response);
+    } catch(error) {
+        alert('this shortened url does not exist in the database');
+       return;
+    }
+    if (document.querySelector('.statSheet-main-div')){
+        document.querySelector('.statSheet-main-div').remove();
+    }
     const urlTimesUsed = createStatsEntries('times used:', response.data.timesUsed);
     const urlCreateDate = createStatsEntries('shortened url created at:', response.data.dateCreated.slice(0, 9));
     const statSheet = helpers.createElement('div', [urlTimesUsed, urlCreateDate], ['statSheet-main-div'], {});

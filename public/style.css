@@ -92,3 +92,17 @@ nav li:hover {
 body > #root {
   margin-top: 20%;
 }
+
+button, #submit-url {
+  width: 100px;
+  height: 30px;
+  border: none;
+  background-color: cornsilk;
+  color: aqua;
+  transition: 0.5s;
+}
+
+button:hover, #submit-url:hover{
+  background-color: darkmagenta;
+  color: coral;
+}
