@@ -1,7 +1,7 @@
 import * as globalVR from './globalVariabalrs';
 import * as helpers from './helperFunctions';
 
-const serverUrl = 'http://localhost:3000';
+const serverUrl = 'https://arni-url.herokuapp.com';
 
 // event listeners function
 export async function sendUrlToServer(e) {

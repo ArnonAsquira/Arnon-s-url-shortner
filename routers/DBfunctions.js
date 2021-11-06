@@ -10,7 +10,7 @@ function createNewUrlEntry (urlToShorten, urlEnding) {
     } else {
         newUrlId = urlEnding;
     }
-    const newUrlEntry = {newUrl: `http://localhost:3000/arniurl/${newUrlId}`, oldUrl: urlToShorten, timesUsed: 0, dateCreated: new Date()};
+    const newUrlEntry = {newUrl: `https://arni-url.herokuapp.com/${newUrlId}`, oldUrl: urlToShorten, timesUsed: 0, dateCreated: new Date()};
     return newUrlEntry;
 }
 
