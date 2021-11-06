@@ -11,7 +11,7 @@ function createNewUrlEntry (urlToShorten, urlEnding) {
     } else {
         newUrlId = urlEnding;
     }
-    const newUrlEntry = {newUrl: `http://localhost:3000/arniurl/${newUrlId}`, oldUrl: urlToShorten, urlEnding: newUrlId, timesUsed: 0, dateCreated: new Date()};
+    const newUrlEntry = {newUrl: `http://localhost:3000/arniurl/${newUrlId}`, oldUrl: urlToShorten, urlEnding: newUrlId, timesUsed: 0, dateCreated: new Date(), shortend: (urlToShorten.length - newUrlId.length)};
     return newUrlEntry;
 }
 

@@ -1,5 +1,6 @@
 import * as globalVR from './globalVariabalrs';
 import * as helpers from './helperFunctions';
+import Swal from 'sweetalert2';
 
 const serverUrl = 'http://localhost:3000';
 
@@ -12,8 +13,12 @@ export async function sendUrlToServer(e) {
         console.log(response)
         helpers.displayUrl(response.data.newUrl);
     } catch(error) {
-        console.log(error);
-        alert('this is not a vaild url');
+        Swal.fire({
+            title: 'Error!',
+            text: error.response.data,
+            icon: 'error',
+            confirmButtonText: 'Cool'
+          })
     }
 }
 
@@ -25,7 +30,12 @@ export async function redirectToStatistics(e) {
         // await axios.get(`${serverUrl}/satistics/`);
     } catch(error) {
         console.log(error);
-        alert ('redirection failed')
+        Swal.fire({
+            title: 'Error!',
+            text: error.response.data,
+            icon: 'error',
+            confirmButtonText: 'Cool'
+          })
     }
 }
 // redirects to home
@@ -38,7 +48,11 @@ export async function redirectToWhy() {
     try {
         window.location.assign(`${serverUrl}/why`);
     } catch(error) {
-        console.log(error);
-        alert ('redirection failed')
+        Swal.fire({
+            title: 'Error!',
+            text: error.response.data,
+            icon: 'error',
+            confirmButtonText: 'Cool'
+          })
     }
 }

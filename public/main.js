@@ -25,7 +25,8 @@ document.body.appendChild( renderer.domElement );
 
 
 const geometry = new THREE.BoxGeometry();
-const material = new THREE.MeshBasicMaterial( { color: 'red' } );
+const material = new THREE.MeshBasicMaterial();
+material.color = new THREE.Color(0x00ff00);
 const cube = new THREE.Mesh( geometry, material );
 scene.add( cube );
 
@@ -36,6 +37,9 @@ function animate() {
 	requestAnimationFrame( animate );
 	cube.rotation.x += 0.01;
     cube.rotation.y += 0.01;
+        material.color.r += 0.002;
+        material.color.b += 0.001;
+        material.color.g -= 0.001;
 	renderer.render( scene, camera );
 }
 animate();

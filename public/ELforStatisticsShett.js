@@ -1,5 +1,6 @@
 import * as globalVR from './globalVariabalrs';
 import * as helpers from './helperFunctions';
+import Swal from 'sweetalert2';
 
 const serverUrl = 'http://localhost:3000';
 
@@ -11,7 +12,12 @@ export async function searchUrlStatistics(e) {
         response = await axios.get(`${serverUrl}/api/statistic/${globalVR.searchStatisticsInput.value.slice(30)}`);
         console.log(response);
     } catch(error) {
-        alert('this shortened url does not exist in the database');
+        Swal.fire({
+            title: 'Error!',
+            text: error.response.data,
+            icon: 'error',
+            confirmButtonText: 'Cool'
+          })
        return;
     }
     if (document.querySelector('.statSheet-main-div')){
@@ -19,7 +25,8 @@ export async function searchUrlStatistics(e) {
     }
     const urlTimesUsed = createStatsEntries('times used:', response.data.timesUsed);
     const urlCreateDate = createStatsEntries('shortened url created at:', response.data.dateCreated.slice(0, 9));
-    const statSheet = helpers.createElement('div', [urlTimesUsed, urlCreateDate], ['statSheet-main-div'], {});
+    const charsShortened = createStatsEntries('charecters shortened:', response.data.shortend);
+    const statSheet = helpers.createElement('div', [urlTimesUsed, urlCreateDate, charsShortened], ['statSheet-main-div'], {});
     document.getElementById('root').appendChild(statSheet);
 }
 // crates stat entries for the dom
@@ -48,6 +55,11 @@ export async function sendUniqueUrlObjToServer(e) {
         helpers.displayUrl(response.data.newUrl);
     } catch(error) {
         console.log(error);
-        alert('invalid url or ending taken');
+        Swal.fire({
+            title: 'Error!',
+            text: error.response.data,
+            icon: 'error',
+            confirmButtonText: 'Cool'
+          })
     }
 }

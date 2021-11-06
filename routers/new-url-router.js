@@ -18,7 +18,7 @@ Router.post('/', (req, res) => {
         res.send(pushUrlEntryToDB.pushUrlEntryToDB(req.body.url, req.body.ending));
     } catch(error) {
         console.log(error);
-        res.send(error);
+        res.send('ending taken');
     }
 })
 
