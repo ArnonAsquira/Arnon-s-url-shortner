@@ -1,33 +1,8 @@
-require("dotenv").config();
-const express = require("express");
-const cors = require("cors");
-const app = express();
+const app = require("./index");
 const shortenRequestRouter = require('./routers/new-url-router');
-const redirectRouter = require('./routers/redirect-router');
-const getStatsRouter = require('./routers/retrieveUrlStatsRouter');
+const PORT = process.env.PORT || 3000;
 
-app.use(cors({
-  origin: '*',
-  methods: '*'
-}));
 
-app.use(express.static(`dist`));
-
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/dist/index.html");
+app.listen(PORT, () => {
+  console.log(`Listening on port ${PORT}`);
 });
-
-// sending statisics sheet
-app.get('/satistics', (req, res) => {
-  res.sendFile(__dirname + "/dist/statistics.html");
-})
-
-app.use('/arniurl', redirectRouter)
-
-app.use('/api/shorturl', shortenRequestRouter);
-
-app.use('/api/statistic/', getStatsRouter)
-
-
-
-module.exports = app;
