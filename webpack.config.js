@@ -1,7 +1,8 @@
-const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
 
 module.exports = {
+  watch: true,
   mode: 'development',
   entry: './public/main.js',
   output: {
@@ -18,6 +19,12 @@ module.exports = {
   },
   plugins: [new HtmlWebpackPlugin({
     template: './public/index.html',
-    
-  })],
+    title: 'url shortner',
+    filename: 'index.html'
+  }), 
+  new HtmlWebpackPlugin({
+    template: './public/statisticsSheet.html',
+    title: 'url shortner',
+    filename: 'statistics.html'
+  })]
 };
