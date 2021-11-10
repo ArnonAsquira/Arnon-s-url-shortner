@@ -14,7 +14,6 @@ Router.post('/', (req, res) => {
        return;
     }
     try {
-        console.log()
         res.send(pushUrlEntryToDB.pushUrlEntryToDB(req.body.url, req.body.ending));
     } catch(error) {
         console.log(error);
